@@ -4,5 +4,95 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/1 MainScreen.unity
+    guid: 3e1dbab255d31324ba40ead253b8f77f
+  - enabled: 1
+    path: Assets/Scenes/2 L1.1.unity
+    guid: aa8f32a28939eb348983268daef949d3
+  - enabled: 1
+    path: Assets/Scenes/3 L1Q1.unity
+    guid: 09ffd1a8c91eb00489785a125879245c
+  - enabled: 1
+    path: Assets/Scenes/4 L1Winscreen.unity
+    guid: b5e8dd0477c3e7b4aaea47dee2da4c8d
+  - enabled: 1
+    path: Assets/Scenes/5 L2Welcome.unity
+    guid: 98de8649f1955c44daf6d50c199de962
+  - enabled: 1
+    path: Assets/Scenes/6 L2.1.unity
+    guid: 7209704e5f219714b897a45df8d3f01b
+  - enabled: 1
+    path: Assets/Scenes/7 L2Q1.unity
+    guid: 12302703ee468ca4c978da9fbf30ed21
+  - enabled: 1
+    path: Assets/Scenes/8 L2Winscreen.unity
+    guid: 5b63ec495769f53428ee2888d8eda098
+  - enabled: 1
+    path: Assets/Scenes/9 L3Welcome.unity
+    guid: 5482b120e37a26447a511982503dd4fd
+  - enabled: 1
+    path: Assets/Scenes/10 L3.1.unity
+    guid: 9c3db8f82953c604296ced1112334e8d
+  - enabled: 1
+    path: Assets/Scenes/11 L3Q1.unity
+    guid: a9624ff4574a9a14aa5a7f07201c81f3
+  - enabled: 1
+    path: Assets/Scenes/12 L3Winscreen.unity
+    guid: f13092429c20a9c458d3441d061c6919
+  - enabled: 1
+    path: Assets/Scenes/13 L4Welcome.unity
+    guid: 5985bffdcbe2d4d4780a31b965cabf3d
+  - enabled: 1
+    path: Assets/Scenes/14 L4.1.unity
+    guid: 58b0a36c0ce6ed843baf0da5cb5daa7b
+  - enabled: 1
+    path: Assets/Scenes/15 L4Q1.unity
+    guid: 299a2eecf60a9e04eb4980ffa5bb13cc
+  - enabled: 1
+    path: Assets/Scenes/16 L4Winscreen.unity
+    guid: 77849ccbca74c61438951be5871a5887
+  - enabled: 1
+    path: Assets/Scenes/17 L5Welcome.unity
+    guid: 116541189bd9ba940a946e02b4e8aa1d
+  - enabled: 1
+    path: Assets/Scenes/18 L5.1.unity
+    guid: 624b40882ebc7224181284ab8b89db49
+  - enabled: 1
+    path: Assets/Scenes/19 L5Q1.unity
+    guid: ff7f9bff317c0e74d964cdc78eca28ee
+  - enabled: 1
+    path: Assets/Scenes/20 L5Winscreen.unity
+    guid: 7a4a3a06eda114e4f838ba6f41948ac2
+  - enabled: 1
+    path: Assets/Scenes/37 GameOver.unity
+    guid: c29658ebc2830a846a6b0dd9fda9c729
+  - enabled: 1
+    path: Assets/Scenes/38 AboutUs.unity
+    guid: c86a4caf8d7c33a419a08b6a8689189b
+  - enabled: 1
+    path: Assets/Scenes/39 Settings.unity
+    guid: fd93edc14520125428ce6b72dfab686c
+  - enabled: 1
+    path: Assets/Scenes/40 Sound.unity
+    guid: 280ec781a38bb014aa02c6c4d3b52a53
+  - enabled: 1
+    path: Assets/Scenes/41 HowToPlay.unity
+    guid: 0534333d7f49c2044b1ea20796af8104
+  - enabled: 1
+    path: Assets/Scenes/42 Pause.unity
+    guid: 14da9ba60b393494a9f4938ff745f4f3
+  - enabled: 1
+    path: Assets/Scenes/MC1.unity
+    guid: bc515929b1bb2b34c835f4b89ed974f8
+  - enabled: 1
+    path: Assets/Scenes/MC2.unity
+    guid: 7194609088fa0d74f82d294851469ab7
+  - enabled: 1
+    path: Assets/Scenes/MC3.unity
+    guid: 91150bca8959edf4ab5e12cad7a60450
+  - enabled: 1
+    path: Assets/Scenes/MC4.unity
+    guid: 4690cf38ab9c1f947a83b6a82bee1068
   m_configObjects: {}
