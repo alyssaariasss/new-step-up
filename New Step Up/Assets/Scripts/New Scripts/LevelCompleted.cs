@@ -28,4 +28,10 @@ public class LevelCompleted : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName: MainMenu);
     }
+
+    public void QuitGame()
+    {
+        UnityEditor.EditorApplication.isPlaying = false;
+        Application.Quit();
+    }
 }
