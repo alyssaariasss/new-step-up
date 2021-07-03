@@ -69,16 +69,16 @@ EditorBuildSettings:
     path: Assets/Scenes/37 GameOver.unity
     guid: c29658ebc2830a846a6b0dd9fda9c729
   - enabled: 1
-    path: Assets/Scenes/38 AboutUs.unity
+    path: Assets/Scenes/AboutUs.unity
     guid: c86a4caf8d7c33a419a08b6a8689189b
   - enabled: 1
-    path: Assets/Scenes/39 Settings.unity
+    path: Assets/Scenes/Settings.unity
     guid: fd93edc14520125428ce6b72dfab686c
   - enabled: 1
-    path: Assets/Scenes/40 Sound.unity
+    path: Assets/Scenes/Sound.unity
     guid: 280ec781a38bb014aa02c6c4d3b52a53
   - enabled: 1
-    path: Assets/Scenes/41 HowToPlay.unity
+    path: Assets/Scenes/HowToPlay.unity
     guid: 0534333d7f49c2044b1ea20796af8104
   - enabled: 1
     path: Assets/Scenes/42 Pause.unity

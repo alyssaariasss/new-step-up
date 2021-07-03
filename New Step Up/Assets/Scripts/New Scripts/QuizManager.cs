@@ -25,7 +25,6 @@ public class QuizManager : MonoBehaviour
 
     private int val;
 
-    public Text ScoreText;
     public Text NumTitle;
 
     public int quesnum = 0;
@@ -50,8 +49,7 @@ public class QuizManager : MonoBehaviour
             quesnum += 1;
             NumTitle.text = "LEVEL " + quesnum;
 
-            int val = UnityEngine.Random.Range(0, questions.Count);
-            ScoreText.text = score.ToString();
+            val = UnityEngine.Random.Range(0, questions.Count);
             currentQues = questions[val];
 
             quizUI.SetQuestion(currentQues);
@@ -59,7 +57,6 @@ public class QuizManager : MonoBehaviour
         }
         else
         {
-            ScoreText.text = score.ToString();
             LevelComplete();
         }
     }
@@ -69,11 +66,8 @@ public class QuizManager : MonoBehaviour
         {
             currentTime -= Time.deltaTime;
             SetTimer(currentTime);
-
-
         }
     }
-
 
     private void SetTimer(float value)
     {
@@ -87,7 +81,6 @@ public class QuizManager : MonoBehaviour
             SceneManager.LoadScene(20);
         }
     }
-
 
 
     // check if correct answer

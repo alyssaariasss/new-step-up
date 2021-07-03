@@ -202,8 +202,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1439924576}
-        m_MethodName: PlayGame
+      - m_Target: {fileID: 952922309}
+        m_MethodName: AboutUs
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -480,8 +480,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1439924575}
-        m_MethodName: PlayGame
+      - m_Target: {fileID: 952922309}
+        m_MethodName: Settings
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -539,6 +539,7 @@ GameObject:
   - component: {fileID: 952922306}
   - component: {fileID: 952922308}
   - component: {fileID: 952922307}
+  - component: {fileID: 952922309}
   m_Layer: 5
   m_Name: MainScreenPanel
   m_TagString: Untagged
@@ -607,6 +608,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 952922305}
   m_CullTransparentMesh: 0
+--- !u!114 &952922309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 952922305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8e85d281f8214046ad3a26158d2c4c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1116286333
 GameObject:
   m_ObjectHideFlags: 0
@@ -762,8 +775,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1439924573}
-        m_MethodName: PlayGame
+      - m_Target: {fileID: 952922309}
+        m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -822,11 +835,6 @@ GameObject:
   - component: {fileID: 1439924571}
   - component: {fileID: 1439924570}
   - component: {fileID: 1439924569}
-  - component: {fileID: 1439924573}
-  - component: {fileID: 1439924576}
-  - component: {fileID: 1439924575}
-  - component: {fileID: 1439924574}
-  - component: {fileID: 1439924577}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -914,66 +922,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1439924573
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1439924568}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afd21bdf3a6cb78499eff81b8b3658d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1439924574
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1439924568}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b13536eb0e579a458aea1ad2a46085e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1439924575
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1439924568}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ecb471e21169d54083df0cbe3008e38, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1439924576
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1439924568}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e7fbc0a9d11a1d4b89f87d10c78f949, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1439924577
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1439924568}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b942ebac8bf25547b5804348b56f008, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1859750622
 GameObject:
   m_ObjectHideFlags: 0
@@ -1055,8 +1003,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1439924574}
-        m_MethodName: PlayGame
+      - m_Target: {fileID: 952922309}
+        m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
