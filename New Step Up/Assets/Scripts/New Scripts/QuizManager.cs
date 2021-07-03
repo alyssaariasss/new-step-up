@@ -3,14 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
 
 public class QuizManager : MonoBehaviour
 {
     [SerializeField] private QuizUI quizUI;
+    [SerializeField] private float timeLimit = 30f;
 
     [SerializeField]
     private List<Question> questions;
     private Question currentQues;
+    private int scoreCount = 0;
+    private float currentTime;
+    private int lifeRemaining = 3;
+
+    private GameStatus gameStatus = GameStatus.Next;
+    public GameStatus GameStatus { get { return gameStatus; } }
 
     [SerializeField]
     private string NextScene;
@@ -23,10 +31,15 @@ public class QuizManager : MonoBehaviour
     public int quesnum = 0;
     public int score;
 
-    void Start()
+    public void Start()
     {
+        scoreCount = 0;
+        currentTime = timeLimit;
+        lifeRemaining = 3;
+
         NumTitle.text = "LEVEL " + quesnum;
         GenerateQuestion();
+        gameStatus = GameStatus.Playing;
     }
 
     // randomize questions
@@ -37,11 +50,12 @@ public class QuizManager : MonoBehaviour
             quesnum += 1;
             NumTitle.text = "LEVEL " + quesnum;
 
-            val = Random.Range(0, questions.Count);
+            int val = UnityEngine.Random.Range(0, questions.Count);
             ScoreText.text = score.ToString();
             currentQues = questions[val];
 
             quizUI.SetQuestion(currentQues);
+
         }
         else
         {
@@ -49,6 +63,32 @@ public class QuizManager : MonoBehaviour
             LevelComplete();
         }
     }
+    private void Update()
+    {
+        if (gameStatus == GameStatus.Playing)
+        {
+            currentTime -= Time.deltaTime;
+            SetTimer(currentTime);
+
+
+        }
+    }
+
+
+    private void SetTimer(float value)
+    {
+
+        TimeSpan time = TimeSpan.FromSeconds(value);
+        quizUI.TimerText.text = time.ToString("mm':'ss");
+
+        if (currentTime <= 0)
+        {
+            gameStatus = GameStatus.Next;
+            SceneManager.LoadScene(20);
+        }
+    }
+
+
 
     // check if correct answer
     public bool Answer(string isAnswered)
@@ -58,16 +98,36 @@ public class QuizManager : MonoBehaviour
         if (isAnswered == currentQues.correctAns)
         {
             correctAns = true;
-            score += 1;
+            scoreCount += 20;
+            quizUI.ScoreText.text = "Score:" + scoreCount;
             questions.RemoveAt(val);
         }
         else
         {
+            lifeRemaining--;
+            quizUI.ReduceLife(lifeRemaining);
             questions.RemoveAt(val);
+
+            if (lifeRemaining <= 0)
+            {
+                gameStatus = GameStatus.Next;
+                SceneManager.LoadScene(20);
+            }
         }
 
-        Invoke("GenerateQuestion", 0.5f);
+        if (gameStatus == GameStatus.Playing)
+        {
+            if (questions.Count > 0)
+            {
+                Invoke("GenerateQuestion", 0.5f);
+            }
+            else
+            {
+                gameStatus = GameStatus.Playing;
+                SceneManager.LoadScene(sceneName: NextScene);
+            }
 
+        }
         return correctAns;
     }
 
@@ -97,4 +157,11 @@ public enum QuestionType
 {
     TEXT,
     IMAGE
+}
+
+[System.Serializable]
+public enum GameStatus
+{
+    Next,
+    Playing
 }

@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class QuizUI : MonoBehaviour
 {
     [SerializeField] private QuizManager quizManager;
-    [SerializeField] private Text questionText;
+    [SerializeField] private Text questionText, scoreText, timerText;
+    [SerializeField] private List<Image> lifeImageList;
     [SerializeField] private Image questionImage;
     [SerializeField] private List<Button> options;
     [SerializeField] private Color correctColor, wrongColor, defaultColor;
@@ -14,6 +15,8 @@ public class QuizUI : MonoBehaviour
     private Question question;
     private bool isAnswered;
 
+    public Text ScoreText { get { return scoreText; } }
+    public Text TimerText { get { return timerText; } }
     void Awake()
     {
         for (int i = 0; i < options.Count; i++)
@@ -44,8 +47,8 @@ public class QuizUI : MonoBehaviour
 
         // randomize choices
         List<string> answerList = ShuffleList.ShuffleListItems<string>(question.choices);
-    
-        for (int i =0; i < options.Count; i++)
+
+        for (int i = 0; i < options.Count; i++)
         {
             options[i].GetComponentInChildren<Text>().text = answerList[i];
             options[i].name = answerList[i];
@@ -65,19 +68,28 @@ public class QuizUI : MonoBehaviour
     // change button color if correct or wrong
     private void OnClick(Button button)
     {
-        if (!isAnswered)
+        if (quizManager.GameStatus == GameStatus.Playing)
         {
-            isAnswered = true;
-            bool isCorrect = quizManager.Answer(button.name);
+            if (!isAnswered)
+            {
+                isAnswered = true;
+                bool isCorrect = quizManager.Answer(button.name);
 
-            if (isCorrect)
-            {
-                button.image.color = correctColor;
-            }
-            else
-            {
-                button.image.color = wrongColor;
+                if (isCorrect)
+                {
+                    button.image.color = correctColor;
+                }
+                else
+                {
+                    button.image.color = wrongColor;
+                }
             }
         }
+
+    }
+
+    public void ReduceLife(int index)
+    {
+        lifeImageList[index].color = correctColor;
     }
 }
