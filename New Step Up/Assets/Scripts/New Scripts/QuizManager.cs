@@ -13,7 +13,9 @@ public class QuizManager : MonoBehaviour
     [SerializeField]
     private List<Question> questions;
     private Question currentQues;
+
     private int scoreCount = 0;
+    private int highscore = 0;
     private float currentTime;
     private int lifeRemaining = 3;
 
@@ -28,11 +30,20 @@ public class QuizManager : MonoBehaviour
     public Text NumTitle;
 
     public int quesnum = 0;
-    public int score;
 
     public void Start()
     {
-        scoreCount = 0;
+        if (PlayerPrefs.HasKey("Score") || PlayerPrefs.HasKey("Highscore"))
+        {
+            LoadScore();
+            highscore = PlayerPrefs.GetInt("Highscore");
+        }
+        else
+        {
+            PlayerPrefs.SetInt("Score", 0);
+            PlayerPrefs.SetInt("Highscore", 0);
+        }
+
         currentTime = timeLimit;
         lifeRemaining = 3;
 
@@ -53,7 +64,6 @@ public class QuizManager : MonoBehaviour
             currentQues = questions[val];
 
             quizUI.SetQuestion(currentQues);
-
         }
         else
         {
@@ -71,17 +81,20 @@ public class QuizManager : MonoBehaviour
 
     private void SetTimer(float value)
     {
-
         TimeSpan time = TimeSpan.FromSeconds(value);
         quizUI.TimerText.text = time.ToString("mm':'ss");
 
         if (currentTime <= 0)
         {
+            UpdateHighscore();
+
+            scoreCount = 0;
+            SaveScore();
+
             gameStatus = GameStatus.Next;
             SceneManager.LoadScene(20);
         }
     }
-
 
     // check if correct answer
     public bool Answer(string isAnswered)
@@ -91,8 +104,7 @@ public class QuizManager : MonoBehaviour
         if (isAnswered == currentQues.correctAns)
         {
             correctAns = true;
-            scoreCount += 20;
-            quizUI.ScoreText.text = "Score:" + scoreCount;
+            AddScore();
             questions.RemoveAt(val);
         }
         else
@@ -103,6 +115,11 @@ public class QuizManager : MonoBehaviour
 
             if (lifeRemaining <= 0)
             {
+                UpdateHighscore();
+
+                scoreCount = 0;
+                SaveScore();
+
                 gameStatus = GameStatus.Next;
                 SceneManager.LoadScene(20);
             }
@@ -128,6 +145,34 @@ public class QuizManager : MonoBehaviour
     void LevelComplete()
     {
         SceneManager.LoadScene(sceneName: NextScene);
+    }
+
+    private void AddScore()
+    {
+        scoreCount += 20;
+        SaveScore();
+        UpdateHighscore();
+        quizUI.ScoreText.text = "Score:" + scoreCount;
+    }
+
+    private void UpdateHighscore()
+    {
+        if (scoreCount > highscore)
+        {
+            highscore = scoreCount;
+            PlayerPrefs.SetInt("Highscore", highscore);
+        }
+    }
+
+    private void LoadScore()
+    {
+        scoreCount = PlayerPrefs.GetInt("Score");
+        quizUI.ScoreText.text = "Score:" + scoreCount;
+    }
+
+    private void SaveScore()
+    {
+        PlayerPrefs.SetInt("Score", scoreCount);
     }
 }
 

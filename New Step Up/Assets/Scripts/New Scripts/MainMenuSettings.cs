@@ -5,13 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuSettings : MonoBehaviour
 {
-
     public void ReturnMain()
     {
         Invoke("DelayReturnMain", 0.65f);
     }
 
-    public void DelayReturnMain()
+    private void DelayReturnMain()
     {
         SceneManager.LoadScene(sceneName: "1 Mainscreen");
     }
@@ -21,7 +20,7 @@ public class MainMenuSettings : MonoBehaviour
         Invoke("DelayStartGame", 1f);
     }
 
-    public void DelayStartGame()
+    private void DelayStartGame()
     {
         SceneManager.LoadScene(sceneName: "2 L1.1");
     }
@@ -32,7 +31,7 @@ public class MainMenuSettings : MonoBehaviour
         Invoke("DelaySettings", 0.7f);
     }
 
-    public void DelaySettings()
+    private void DelaySettings()
     {
         SceneManager.LoadScene(sceneName: "Settings");
     }
@@ -40,9 +39,9 @@ public class MainMenuSettings : MonoBehaviour
     public void AboutUs()
     {
         Invoke("DelayAboutUs", 0.7f);
-    }   
+    }
 
-    public void DelayAboutUs()
+    private void DelayAboutUs()
     {
         SceneManager.LoadScene(sceneName: "AboutUs");
     }
@@ -52,7 +51,7 @@ public class MainMenuSettings : MonoBehaviour
         Invoke("DelayHowToPlay", 0.65f);
     }
 
-    public void DelayHowToPlay()
+    private void DelayHowToPlay()
     {
         SceneManager.LoadScene(sceneName: "HowToPlay");
     }
@@ -62,9 +61,9 @@ public class MainMenuSettings : MonoBehaviour
         Invoke("DelaySound", 0.65f);
     }
 
-    public void DelaySound()
+    private void DelaySound()
     {
-        SceneManager.LoadScene(sceneName: "HowToPlay");
+        SceneManager.LoadScene(sceneName: "Sound");
     }
 
     public void QuitGame()
