@@ -38,6 +38,11 @@ public class GameSettings : MonoBehaviour
 
     public void ReturnMain()
     {
+        Invoke("DelayReturnMain", 0.65f);
+    }
+
+    public void DelayReturnMain()
+    {
         SceneManager.LoadScene(sceneName: "1 Mainscreen");
     }
 }

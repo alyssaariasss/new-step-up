@@ -16,15 +16,30 @@ public class LevelCompleted : MonoBehaviour
 
     public void MoveNext()
     {
+        Invoke("DelayMoveNext", 0.85f);
+    }
+
+    public void DelayMoveNext()
+    {
         SceneManager.LoadScene(sceneName: NextLevel);
     }
 
     public void RestartLevel()
     {
+        Invoke("DelayRestartLevel", 1f );
+    }
+
+    public void DelayRestartLevel()
+    {
         SceneManager.LoadScene(sceneName: RestartScene);
     }
 
     public void ReturnMain()
+    {
+        Invoke("DelayReturnMain", 1f);
+    }
+
+    public void DelayReturnMain()
     {
         SceneManager.LoadScene(sceneName: MainMenu);
     }
