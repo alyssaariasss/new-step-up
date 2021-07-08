@@ -32,7 +32,15 @@ public class QuizManager : MonoBehaviour
 
     public void Start()
     {
-        scoreCount = 0;
+        if (PlayerPrefs.HasKey("Score"))
+        {
+            LoadScore();
+        }
+        else
+        {
+            PlayerPrefs.SetInt("Score", 0);
+        }
+
         currentTime = timeLimit;
         lifeRemaining = 3;
 
@@ -53,7 +61,6 @@ public class QuizManager : MonoBehaviour
             currentQues = questions[val];
 
             quizUI.SetQuestion(currentQues);
-
         }
         else
         {
@@ -71,12 +78,16 @@ public class QuizManager : MonoBehaviour
 
     private void SetTimer(float value)
     {
-
         TimeSpan time = TimeSpan.FromSeconds(value);
         quizUI.TimerText.text = time.ToString("mm':'ss");
 
         if (currentTime <= 0)
         {
+            PlayerPrefs.SetInt("Highscore", scoreCount);
+
+            scoreCount = 0;
+            SaveScore();
+
             gameStatus = GameStatus.Next;
             SceneManager.LoadScene(20);
         }
@@ -91,8 +102,11 @@ public class QuizManager : MonoBehaviour
         if (isAnswered == currentQues.correctAns)
         {
             correctAns = true;
+
             scoreCount += 20;
+            SaveScore();
             quizUI.ScoreText.text = "Score:" + scoreCount;
+
             questions.RemoveAt(val);
         }
         else
@@ -103,6 +117,10 @@ public class QuizManager : MonoBehaviour
 
             if (lifeRemaining <= 0)
             {
+                PlayerPrefs.SetInt("Highscore", scoreCount);
+                scoreCount = 0;
+                SaveScore();
+
                 gameStatus = GameStatus.Next;
                 SceneManager.LoadScene(20);
             }
@@ -128,6 +146,17 @@ public class QuizManager : MonoBehaviour
     void LevelComplete()
     {
         SceneManager.LoadScene(sceneName: NextScene);
+    }
+
+    private void LoadScore()
+    {
+        scoreCount = PlayerPrefs.GetInt("Score");
+        quizUI.ScoreText.text = "Score:" + scoreCount;
+    }
+
+    private void SaveScore()
+    {
+        PlayerPrefs.SetInt("Score", scoreCount);
     }
 }
 

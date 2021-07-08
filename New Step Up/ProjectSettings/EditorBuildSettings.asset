@@ -84,15 +84,15 @@ EditorBuildSettings:
     path: Assets/Scenes/42 Pause.unity
     guid: 14da9ba60b393494a9f4938ff745f4f3
   - enabled: 1
-    path: Assets/Scenes/MC1.unity
+    path: Assets/Scenes/OldScenesStorage/MC1.unity
     guid: bc515929b1bb2b34c835f4b89ed974f8
   - enabled: 1
-    path: Assets/Scenes/MC2.unity
+    path: Assets/Scenes/OldScenesStorage/MC2.unity
     guid: 7194609088fa0d74f82d294851469ab7
   - enabled: 1
-    path: Assets/Scenes/MC3.unity
+    path: Assets/Scenes/OldScenesStorage/MC3.unity
     guid: 91150bca8959edf4ab5e12cad7a60450
   - enabled: 1
-    path: Assets/Scenes/MC4.unity
+    path: Assets/Scenes/OldScenesStorage/MC4.unity
     guid: 4690cf38ab9c1f947a83b6a82bee1068
   m_configObjects: {}
