@@ -7,6 +7,7 @@ public class MainMenuSettings : MonoBehaviour
 {
     public void ReturnMain()
     {
+        PlayerPrefs.DeleteKey("Score");
         Invoke("DelayReturnMain", 0.65f);
     }
 
@@ -68,6 +69,7 @@ public class MainMenuSettings : MonoBehaviour
 
     public void QuitGame()
     {
+        PlayerPrefs.DeleteAll();
         UnityEditor.EditorApplication.isPlaying = false;
         Application.Quit();
     }

@@ -19,17 +19,18 @@ public class LevelCompleted : MonoBehaviour
         Invoke("DelayMoveNext", 0.85f);
     }
 
-    public void DelayMoveNext()
+    private void DelayMoveNext()
     {
         SceneManager.LoadScene(sceneName: NextLevel);
     }
 
     public void RestartLevel()
     {
-        Invoke("DelayRestartLevel", 1f );
+        PlayerPrefs.DeleteKey("Score");
+        Invoke("DelayRestartLevel", 1f);
     }
 
-    public void DelayRestartLevel()
+    private void DelayRestartLevel()
     {
         SceneManager.LoadScene(sceneName: RestartScene);
     }
@@ -39,13 +40,14 @@ public class LevelCompleted : MonoBehaviour
         Invoke("DelayReturnMain", 1f);
     }
 
-    public void DelayReturnMain()
+    private void DelayReturnMain()
     {
         SceneManager.LoadScene(sceneName: MainMenu);
     }
 
     public void QuitGame()
     {
+        PlayerPrefs.DeleteAll();
         UnityEditor.EditorApplication.isPlaying = false;
         Application.Quit();
     }

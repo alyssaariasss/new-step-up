@@ -5,31 +5,33 @@ using UnityEngine.UI;
 
 public class MusicPlayer : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public AudioSource AudioSource;
-
     public Slider volumeSlider;
 
-    // Value from the slider, and it converts to volume level
-    public float musicVolume = 1f;
-
-
-    private void Start()
+    void Start()
     {
-        AudioSource.Play();
-        musicVolume = PlayerPrefs.GetFloat("volume");
-        AudioSource.volume = musicVolume;
-        volumeSlider.value = musicVolume;
+        if (PlayerPrefs.HasKey("Volume"))
+        {
+            LoadVolume();
+        }
+        else
+        {
+            PlayerPrefs.SetFloat("Volume", 1);
+        }
     }
 
-    private void Update()
+    public void UpdateVolume()
     {
-        AudioSource.volume = musicVolume;
-        PlayerPrefs.SetFloat("volume" , musicVolume);
+        AudioListener.volume = volumeSlider.value;
+        SaveVolume();
     }
 
-    public void updateVolume (float volume)
+    private void LoadVolume()
     {
-        musicVolume = volume;
+        volumeSlider.value = PlayerPrefs.GetFloat("Volume");
+    }
+
+    private void SaveVolume()
+    {
+        PlayerPrefs.SetFloat("Volume", volumeSlider.value);
     }
 }

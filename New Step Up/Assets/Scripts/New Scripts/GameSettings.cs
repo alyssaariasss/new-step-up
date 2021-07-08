@@ -38,10 +38,11 @@ public class GameSettings : MonoBehaviour
 
     public void ReturnMain()
     {
+        PlayerPrefs.DeleteKey("Score");
         Invoke("DelayReturnMain", 0.65f);
     }
 
-    public void DelayReturnMain()
+    private void DelayReturnMain()
     {
         SceneManager.LoadScene(sceneName: "1 Mainscreen");
     }
