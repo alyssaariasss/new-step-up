@@ -70,7 +70,6 @@ public class MainMenuSettings : MonoBehaviour
     public void QuitGame()
     {
         PlayerPrefs.DeleteAll();
-        UnityEditor.EditorApplication.isPlaying = false;
         Application.Quit();
     }
 }

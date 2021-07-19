@@ -48,7 +48,6 @@ public class LevelCompleted : MonoBehaviour
     public void QuitGame()
     {
         PlayerPrefs.DeleteAll();
-        UnityEditor.EditorApplication.isPlaying = false;
         Application.Quit();
     }
 }
